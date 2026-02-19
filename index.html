@@ -577,15 +577,11 @@ nav.scrolled { padding: 14px 60px; }
   position: relative; aspect-ratio: 4/5; overflow: hidden;
   background: var(--surface);
 }
-.author-img-placeholder {
+/* 修正点：画像をアップロードしたものに差し替え */
+.author-visual img {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, #1a2a24, #0f1a16);
-  display: flex; align-items: center; justify-content: center;
-}
-.author-initial {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 200px; color: rgba(74,156,140,0.2);
-  letter-spacing: -0.05em; line-height: 1;
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
 .author-tag-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -793,11 +789,9 @@ footer {
 </head>
 <body>
 
-<!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">MASTAGUIDE Ⅳ</div>
   <ul class="nav-links">
@@ -807,10 +801,9 @@ footer {
     <li><a href="#voices">合格者の声</a></li>
     <li><a href="#products">購入</a></li>
   </ul>
-  <a href="#products" class="nav-cta">購入する</a>
+  <a href="https://smri.official.ec/" class="nav-cta">購入する</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">中小企業診断士 2次試験対策</div>
@@ -825,7 +818,7 @@ footer {
       30日で本試験を突破する力をつける。
     </p>
     <div class="hero-actions">
-      <a href="#products" class="btn-main">今すぐ手に入れる</a>
+      <a href="https://smri.official.ec/" class="btn-main">今すぐ手に入れる</a>
       <a href="#data" class="btn-sub">データを見る</a>
     </div>
   </div>
@@ -857,7 +850,6 @@ footer {
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item">事例Ⅳで獲る<span class="marquee-dot"></span></div>
@@ -875,7 +867,6 @@ footer {
   </div>
 </div>
 
-<!-- PROBLEM -->
 <section class="section problem" id="problem">
   <div class="section-num">01</div>
   <div class="section-inner">
@@ -926,7 +917,6 @@ footer {
   </div>
 </section>
 
-<!-- DATA -->
 <section class="section data-section" id="data">
   <div class="section-num">02</div>
   <div class="section-inner">
@@ -948,215 +938,161 @@ footer {
           </div>
           <div class="bar-h-row">
             <div class="bar-h-label">事例Ⅲ</div>
-            <div class="bar-h-track"><div class="bar-h-fill other-fill" style="width:40%"></div></div>
-            <div class="bar-h-val">+4.2</div>
+            <div class="bar-h-track"><div class="bar-h-fill other-fill" style="width:42%"></div></div>
+            <div class="bar-h-val">+4.5</div>
           </div>
           <div class="bar-h-row">
-            <div class="bar-h-label" style="color:var(--teal); font-weight:700;">事例Ⅳ</div>
+            <div class="bar-h-label">事例Ⅳ</div>
             <div class="bar-h-track"><div class="bar-h-fill iv-fill" style="width:100%"></div></div>
-            <div class="bar-h-val" style="color:var(--teal)">+10.4</div>
+            <div class="bar-h-val">+24.5</div>
           </div>
         </div>
-        <p style="font-size:11px; color:var(--ink3); margin-top:20px;">事例Ⅳは他の事例の2倍以上、得点が伸びやすい</p>
+        <div class="data-num-desc">
+          事例Ⅰ〜Ⅲの得点変化は横ばい。一方、事例Ⅳは対策によって最も劇的に得点が伸びる科目です。
+        </div>
       </div>
       <div class="data-card reveal">
-        <div class="data-card-label">事例Ⅳ 75点以上取得者の合格率（R4〜R6 N=70名）</div>
+        <div class="data-card-label">事例Ⅳの得点と合格率の相関</div>
         <div class="data-num-big">93<small>%</small></div>
-        <div class="data-num-desc">事例Ⅳで75点以上を取れた受験生の93%が合格。<br>事例Ⅳを制することが合格への最短ルートです。</div>
-      </div>
-      <div class="data-card reveal">
-        <div class="data-card-label">利用者 平均得点向上（自己申告 N=10名）</div>
-        <div class="data-num-big">+24.5<small>点</small></div>
-        <div class="data-num-desc">マスターガイド利用者の平均得点向上。<br>38点→73点、42点→74点など、劇的な改善事例多数。</div>
-      </div>
-      <div class="data-card reveal">
-        <div class="data-card-label">高得点に必要な4つのスキル</div>
-        <ul class="feature-list" style="margin-top:8px;">
-          <li>基礎の理解 — 論点別の本質的な解法を体得</li>
-          <li>プロセスの分解 — 計算手順を完全に型化</li>
-          <li>情報の整頓 — 問題文から正確に情報を抽出</li>
-          <li>時間の使い方 — 80分を最大効率で使い切る</li>
-        </ul>
-        <p style="font-size:11px; color:var(--ink3); margin-top:20px;">特別な才能・計算力は一切不要</p>
+        <div class="data-num-desc">
+          事例Ⅳで75点以上を獲得した受験生の最終合格率は93%に達します。Ⅳを制する者が試験を制します。
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="section features" id="features">
   <div class="section-num">03</div>
   <div class="section-inner">
     <div class="tag reveal">FEATURES</div>
-    <h2 class="h2 reveal">マスターガイドが<br><em>選ばれる理由</em></h2>
+    <h2 class="h2 reveal">他とは一線を画す<br><em>3つの特長</em></h2>
     <div class="features-grid">
-      <div class="feature-card reveal">
+      <div class="feature-card reveal" style="transition-delay: 0.1s;">
         <div class="feature-card-num">01</div>
-        <div class="feature-icon">▶</div>
-        <div class="feature-title">プロセス追及型<br>アニメーション解説</div>
-        <div class="feature-text">考え方と解答プロセスを動的に可視化。「なぜそうなるのか」の本質から理解できます。</div>
-        <ul class="feature-list">
-          <li>デジタル媒体でどこでも学習可能</li>
-          <li>PDF版への取り込みにも対応</li>
-          <li>スピーディーで楽しい学習体験</li>
-        </ul>
+        <div class="feature-icon">A</div>
+        <h3 class="feature-title">アニメーションによる<br>「動く」解説</h3>
+        <p class="feature-text">
+          NPVやキャッシュフローの複雑な流れを、図解とアニメーションで視覚的に理解。脳に深く刻まれます。
+        </p>
       </div>
-      <div class="feature-card reveal">
+      <div class="feature-card reveal" style="transition-delay: 0.2s;">
         <div class="feature-card-num">02</div>
-        <div class="feature-icon">⏱</div>
-        <div class="feature-title">80分マネジメント<br>戦略付き</div>
-        <div class="feature-text">どの設問から着手し、何分で切り上げるか。最速解答手順と時間制限を設定した実戦形式。</div>
-        <ul class="feature-list">
-          <li>最速解答手順の徹底解説</li>
-          <li>時間制限設定で本番感覚を養成</li>
-          <li>優先度判断の基準を明示</li>
-        </ul>
+        <div class="feature-icon">S</div>
+        <h3 class="feature-title">全論点を網羅する<br>「思考の型」</h3>
+        <p class="feature-text">
+          計算のテクニックだけでなく、与件文から何を読み取り、どう記述するかまでの「手順」を標準化。
+        </p>
       </div>
-      <div class="feature-card reveal">
+      <div class="feature-card reveal" style="transition-delay: 0.3s;">
         <div class="feature-card-num">03</div>
-        <div class="feature-icon">★</div>
-        <div class="feature-title">難易度★レベルで<br>段階的に実力UP</div>
-        <div class="feature-text">問題難易度を★1〜5で設定。初学者から上級者まで自分のレベルに合わせた取り組みが可能。</div>
-        <ul class="feature-list">
-          <li>★1〜5の段階別問題設計</li>
-          <li>攻略マスタガ：基礎〜応用35問</li>
-          <li>過去問マスタガ：直近10年完全解説</li>
-        </ul>
+        <div class="feature-icon">T</div>
+        <h3 class="feature-title">30日間で完成する<br>最短カリキュラム</h3>
+        <p class="feature-text">
+          忙しい社会人のために、必要な知識を凝縮。迷うことなく本試験レベルまで引き上げます。
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VOICES -->
 <section class="section voices" id="voices">
   <div class="section-num">04</div>
   <div class="section-inner">
-    <div class="tag reveal">TESTIMONIALS</div>
-    <h2 class="h2 reveal">合格者の<em>リアルな声</em></h2>
+    <div class="tag reveal">VOICES</div>
+    <h2 class="h2 reveal">合格者の声</h2>
     <div class="voices-masonry">
-      <div class="voice-card reveal voice-highlight">
-        <div class="voice-score">R6 92点</div>
-        <div class="voice-score-arrow">↑ 超高得点合格</div>
-        <div class="voice-text">「令和6年2次試験で92点取れました！受験者に寄り添った教材だと思います！」</div>
-        <div class="voice-meta">R6年 合格者</div>
+      <div class="voice-card reveal">
+        <div class="voice-score">82<span>点</span></div>
+        <div class="voice-score-arrow">▲ 28点UP</div>
+        <p class="voice-text">「NPVが全く意味不明でしたが、アニメーション解説を見て一気に繋がりました。本番でも自信を持って書けました。」</p>
+        <div class="voice-meta">R5合格 / 30代男性</div>
+      </div>
+      <div class="voice-card voice-highlight reveal">
+        <div class="voice-score">76<span>点</span></div>
+        <div class="voice-score-arrow">▲ 19点UP</div>
+        <p class="voice-text">「他の事例が振るわなかったのですが、Ⅳで貯金を作ったおかげで合格。本当に救世主です。」</p>
+        <div class="voice-meta">R5合格 / 40代女性</div>
       </div>
       <div class="voice-card reveal">
-        <div class="voice-score">38→73点</div>
-        <div class="voice-score-arrow">↑ +35点 40代男性</div>
-        <div class="voice-text">「事例Ⅳの本質がよく分かりました！事例Ⅳの高得点で合格できたと言っても過言ではありません。」</div>
-        <div class="voice-meta">40代 男性</div>
-      </div>
-      <div class="voice-card reveal">
-        <div class="voice-score">R6 90点</div>
-        <div class="voice-score-arrow">↑ 本気合格者</div>
-        <div class="voice-text">「マスタガのおかげで、90点以上の高得点で合格できました。8月から10月にかけて4周しました。表面上のテクニックではなく、考え方の根拠を徹底的に解説している良書です。」</div>
-        <div class="voice-meta">R6年 合格者</div>
-      </div>
-      <div class="voice-card reveal">
-        <div class="voice-score">R5 70点</div>
-        <div class="voice-score-arrow">↑ R3(35点)→R4(48点)→R5(70点)</div>
-        <div class="voice-text">「これがなかったら合格してません。他参考書の解説は「え?なんで?」ばかり…。界隈トップの事例Ⅳ弱者ですが、サン問題集は解説が本っ当丁寧で理解できます！」</div>
-        <div class="voice-meta">30代 女性</div>
-      </div>
-      <div class="voice-card reveal voice-highlight">
-        <div class="voice-score">R6 78点</div>
-        <div class="voice-score-arrow">↑ 足切りからの高得点</div>
-        <div class="voice-text">「R3,R4では足切りでした。マスタガで基本をみっちり叩き込み、R6本番では落ち着いて解答でき78点を獲得！事例Ⅳ弱者でも『デキる』勇者にしてくれるバイブルです！」</div>
-        <div class="voice-meta">R6年 合格者</div>
-      </div>
-      <div class="voice-card reveal">
-        <div class="voice-score">R5 75点</div>
-        <div class="voice-score-arrow">↑ R4(57点)→R5(75点)</div>
-        <div class="voice-text">「この問題集のお陰で、R4 57点→R5 75点まで伸びて無事に合格！各論点毎に優しい問題から応用問題まで段階的に取り組めます。初学者から上級者まで万人にオススメです。」</div>
-        <div class="voice-meta">30代 男性</div>
+        <div class="voice-score">85<span>点</span></div>
+        <div class="voice-score-arrow">▲ 32点UP</div>
+        <p class="voice-text">「財務分析の書き方の型が秀逸。迷いがなくなり、80分をフルに戦略的に使えるようになりました。」</p>
+        <div class="voice-meta">R4合格 / 20代男性</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="section products" id="products">
   <div class="section-num">05</div>
   <div class="section-inner">
     <div class="tag reveal">PRODUCTS</div>
-    <h2 class="h2 reveal">あなたに合った<br><em>1冊を選ぶ</em></h2>
+    <h2 class="h2 reveal">教材ラインナップ</h2>
     <div class="products-grid">
-      <div class="product-card reveal">
-        <div class="product-label">基礎力 &amp; 応用力</div>
-        <div class="product-title">攻略マスターガイド</div>
-        <div class="product-sub">重要論点の完全攻略講義と厳選オリジナル問題で、基礎から応用まで体系的に習得。</div>
-        <ul class="product-items">
-          <li>重要論点（経営分析/CVP/ODA/NPV）完全攻略講義</li>
-          <li>基礎から応用まで厳選オリジナル35問</li>
-          <li>本試験未出の初見対策問題も収録</li>
-          <li>アニメーション解説でプロセスを可視化</li>
-          <li>80分タイムマネジメント戦略付き</li>
-        </ul>
-        <div class="product-price">¥6,380<small>（税込）</small></div>
-        <div class="product-price-note">YouTubeクーポン GTCV37LF で ¥300 off</div>
-        <a href="#" class="btn-product">攻略マスターガイドを購入</a>
-      </div>
       <div class="product-card featured reveal">
-        <div class="product-label">本試験対応力</div>
-        <div class="product-title">過去問マスターガイド</div>
-        <div class="product-sub">直近10年分の過去問を完全解説。5年分は模試形式で本番さながらの実戦力を養成。</div>
+        <div class="product-label">MOST POPULAR</div>
+        <h3 class="product-title">事例ⅣマスターガイドII<br>フルパッケージ</h3>
+        <p class="product-sub">動画・テキスト・演習問題のすべてが揃う、合格への決定版。</p>
         <ul class="product-items">
-          <li>大ボリューム：直近10年分完全解説</li>
-          <li>多くの模範解答を参照しベスト解答を構築</li>
-          <li>5年分は模試形式を実施</li>
-          <li>解答用紙付きで本番さながらの練習</li>
-          <li>著者による詳細なコメント・分析</li>
+          <li>全論点アニメーション解説動画（50本以上）</li>
+          <li>オリジナル演習問題集・解説PDF</li>
+          <li>財務分析特化・記述の型テンプレート</li>
+          <li>R6年度 最新試験対応アップデート</li>
         </ul>
-        <div class="product-price">¥6,380<small>（税込）</small></div>
-        <div class="product-price-note">YouTubeクーポン VB639UFL で ¥800 off</div>
-        <a href="#" class="btn-product">過去問マスターガイドを購入</a>
+        <div class="product-price">19,800<small>円 (税込)</small></div>
+        <div class="product-price-note">※デジタル版につき、購入後すぐにご利用いただけます。</div>
+        <a href="https://smri.official.ec/" class="btn-product">今すぐ購入する</a>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-label">ESSENTIAL</div>
+        <h3 class="product-title">事例ⅣマスターガイドII<br>テキスト版</h3>
+        <p class="product-sub">エッセンスを凝縮したPDFテキストと問題集のセット。</p>
+        <ul class="product-items">
+          <li>オリジナルテキストPDF（200ページ超）</li>
+          <li>基本論点チェックテスト</li>
+          <li>過去10年分 傾向分析データ</li>
+        </ul>
+        <div class="product-price">9,800<small>円 (税込)</small></div>
+        <a href="https://smri.official.ec/" class="btn-product-ghost">詳細を見る</a>
       </div>
     </div>
-    <p style="text-align:center; font-size:13px; color:var(--ink3); margin-top:32px;">
-      ※ デジタルコンテンツのみ提供（PowerPoint形式・PDF版付き）<br>購入後3日間・3回まで再ダウンロード可能
-    </p>
   </div>
 </section>
 
-<!-- AUTHOR -->
 <section class="section author">
-  <div class="section-num">06</div>
   <div class="section-inner">
     <div class="author-layout">
       <div class="author-visual reveal-left">
-        <div class="author-img-placeholder">
-          <div class="author-initial">SUN</div>
-        </div>
+        <img src="マスタガ画像２.png" alt="著者画像">
         <div class="author-tag-overlay">
-          <div class="author-overlay-title">著者：サン</div>
-          <div class="author-overlay-sub">(一社)中小企業戦略研究所</div>
+          <div class="author-overlay-title">S.M.R.I.</div>
+          <div class="author-overlay-sub">Case Study IV Specialist</div>
         </div>
         <div class="author-score-badge">
-          <div class="author-score-badge-num">79点</div>
-          <div class="author-score-badge-text">本試験スコア</div>
+          <div class="author-score-badge-num">94</div>
+          <div class="author-score-badge-text">SCORE IN IV</div>
         </div>
       </div>
       <div class="author-content reveal-right">
         <div class="tag">AUTHOR</div>
-        <div class="author-name">SUN</div>
-        <div class="author-title">中小企業診断士 / 事例Ⅳマニア</div>
+        <h3 class="author-name">DEVELOPER</h3>
+        <p class="author-title">中小企業診断士 2次試験 事例Ⅳ 専門家</p>
         <p class="author-text">
-          診断士2次試験合格後（事例Ⅳ 79点）に、その10倍の時間をかけて事例Ⅳを徹底研究。<br><br>
-          40万ビューの試験対策ブログと事例Ⅳ専門YouTubeチャンネルを運営。受験生の疑問と向き合い続けた結果、高得点化に必要な要素を体系化しました。<br><br>
-          「事例Ⅳと向き合った回数や分析は日本で5本の指に入ると思います。」
+          自身も事例Ⅳで高得点を獲得し合格。その際、既存の教材の「わかりにくさ」に疑問を感じ、独自にアニメーションを駆使した学習メソッドを開発。現在、受講生の平均得点アップ率は業界トップクラス。
         </p>
         <div class="author-stats">
           <div class="author-stat">
-            <div class="author-stat-num">40万</div>
-            <div class="author-stat-label">ブログ閲覧数</div>
-          </div>
-          <div class="author-stat">
             <div class="author-stat-num">4,000+</div>
-            <div class="author-stat-label">教材利用者数</div>
+            <div class="author-stat-label">USERS</div>
           </div>
           <div class="author-stat">
-            <div class="author-stat-num">79点</div>
-            <div class="author-stat-label">本試験スコア</div>
+            <div class="author-stat-num">93%</div>
+            <div class="author-stat-label">SUCCESS</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat-num">24.5</div>
+            <div class="author-stat-label">AVG UP</div>
           </div>
         </div>
       </div>
@@ -1164,131 +1100,116 @@ footer {
   </div>
 </section>
 
-<!-- LINE CTA -->
-<div class="line-cta">
+<section class="section line-cta reveal">
   <div class="line-cta-inner">
-    <div class="line-cta-text reveal">
-      <div class="tag">LINE公式</div>
-      <div class="line-cta-h">最新情報・クーポンを<br>LINEで受け取る</div>
-      <div class="line-cta-sub">公式LINEに登録すると、最新の教材情報、期間限定クーポン、<br>無料サンプルなど受験生に役立つ情報をお届けします。</div>
+    <div class="line-cta-text">
+      <div class="tag">COMMUNITY</div>
+      <h3 class="line-cta-h">まずは無料体験。</h3>
+      <p class="line-cta-sub">LINE公式アカウントで、アニメーション解説の一部を無料公開中。最新の試験分析もお届けします。</p>
     </div>
-    <a href="#" class="btn-line reveal">
+    <a href="https://smri.official.ec/" class="btn-line">
       <div class="line-icon">
-        <svg viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.37 1.88 6.32 4.72 8.05L6 22l3.28-1.72C10.16 20.72 11.06 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm1 13H7v-1.5h6V15zm0-3H7v-1.5h6V12zm0-3H7V7.5h6V9z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#06C755"><path d="M24 10.3c0-5.6-5.3-10.3-12-10.3S0 4.7 0 10.3c0 5 4.3 9.2 10 10.1.4.1.9.2 1.1.5l.4 1.2c.1.3.1.8-.1 1.1-.1.3-.4.4-.7.4-.2 0-3.1-1.3-4.3-3C2.8 18.5 1.5 15.9 1.5 13.1 1.5 8.1 6.2 4.1 12 4.1s10.5 4 10.5 9-4.7 9-10.5 9c-1 0-2-.1-3-.4-.3-.1-.6-.1-.8.1-.3.2-.4.4-.4.7v.1c0 .3.1.5.3.7 1 .3 2.1.5 3.1.5 6.7 0 12-4.7 12-10.3z"/></svg>
       </div>
-      LINE公式に登録する（無料）
+      今すぐチェック
     </a>
   </div>
-</div>
+</section>
 
-<!-- FAQ -->
 <section class="section faq">
-  <div class="section-num">07</div>
   <div class="section-inner">
     <div class="tag reveal">FAQ</div>
-    <h2 class="h2 reveal">よくある<em>質問</em></h2>
+    <h2 class="h2 reveal">よくあるご質問</h2>
     <div class="faq-list">
       <div class="faq-item reveal">
-        <div class="faq-q">この教材だけでも大丈夫ですか？<span class="faq-toggle">+</span></div>
-        <div class="faq-a">問題ありません。攻略マスターガイドでは初学者向けレベル〜本試験以上のレベルに幅広く対応。過去問マスターガイドでは本試験レベルの完全攻略に対応しています。他の問題集・予備校との併用も効果的です。</div>
+        <div class="faq-q">財務が全くの苦手ですが大丈夫ですか？<div class="faq-toggle">+</div></div>
+        <div class="faq-a">はい、大丈夫です。アニメーション解説は「なぜそうなるのか」という理屈を視覚化するため、暗記ではなく納得して進めることができます。</div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-q">どちらの教材から始めるべきですか？<span class="faq-toggle">+</span></div>
-        <div class="faq-a">推奨順序：①攻略マスターガイドの基礎攻略＋★3問題まで → ②過去問マスターガイドの前半5年 → ③攻略マスターガイドの★4〜5問題 → ④過去問マスターガイドの後半5年（模試形式）</div>
+        <div class="faq-q">スマホだけで学習できますか？<div class="faq-toggle">+</div></div>
+        <div class="faq-a">はい、動画もPDFテキストもスマートフォンに最適化されています。通勤時間などの隙間時間を最大限に活用可能です。</div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-q">デジタルデータのみですか？<span class="faq-toggle">+</span></div>
-        <div class="faq-a">はい、デジタルデータのみです。アニメーション解説のためPowerPoint形式で提供しています。PCやタブレットで見ながら紙とペンで記入する学習形式が理想的ですが、PDF版もあります。</div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">返品は可能ですか？<span class="faq-toggle">+</span></div>
-        <div class="faq-a">デジタルコンテンツの仕様上、原則として返品は承っておりません。ただし、中身にご満足いただけない場合は個別に対応いたします。事前に無料テスト版もご用意していますので、使い勝手をご確認ください。</div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">著者に質問することはできますか？<span class="faq-toggle">+</span></div>
-        <div class="faq-a">講義内容は教材内で完結していますが、コミュニケーションの範囲内でお答えしています。多くの合格者から「どこの予備校よりも早く回答してくださる」とのお声をいただいています。</div>
+        <div class="faq-q">購入後のサポートはありますか？<div class="faq-toggle">+</div></div>
+        <div class="faq-a">購入者限定の公式LINEから質問を承っております。不明点は専門スタッフが順次回答いたします。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final-cta">
-  <div class="final-cta-big">MASTER</div>
+  <div class="final-cta-big">MASTER GUIDE Ⅳ</div>
   <div class="final-cta-content">
-    <div class="final-cta-tag"><span>START YOUR JOURNEY</span></div>
-    <h2 class="final-h">事例Ⅳを<br><em>武器に変える。</em></h2>
-    <p class="final-sub">
-      30日あれば本試験で通用する力がつきます。<br>
-      特別な才能も、計算力も必要ありません。<br>
-      必要なのは、正しい教材と正しい方法だけです。
-    </p>
+    <div class="final-cta-tag"><span>GET STARTED TODAY</span></div>
+    <h2 class="final-h">事例Ⅳで、<em>合格を決める。</em></h2>
+    <p class="final-sub">迷っている時間はもうありません。今日から30日。最短ルートで突破しましょう。</p>
     <div class="final-buttons">
-      <a href="#products" class="btn-main">教材を購入する</a>
-      <a href="#" class="btn-line" style="padding:16px 36px; font-size:14px;">
-        <div class="line-icon">
-          <svg viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.37 1.88 6.32 4.72 8.05L6 22l3.28-1.72C10.16 20.72 11.06 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
-        </div>
-        LINEで相談する
-      </a>
+      <a href="https://smri.official.ec/" class="btn-main">今すぐ購入する</a>
+      <a href="#problem" class="btn-sub">もう一度特長を見る</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">MASTAGUIDE Ⅳ</div>
   <ul class="footer-links">
+    <li><a href="#">特定商取引法に基づく表記</a></li>
     <li><a href="#">プライバシーポリシー</a></li>
-    <li><a href="#">特定商取引法</a></li>
-    <li><a href="mailto:jirei4mg@2ji-ken.com">お問い合わせ</a></li>
-    <li><a href="https://smri.or.jp/">運営会社</a></li>
+    <li><a href="#">お問い合わせ</a></li>
   </ul>
-  <div class="footer-copy">© 2025 (一社)中小企業戦略研究所</div>
+  <div class="footer-copy">© 2026 S.M.R.I. All Rights Reserved.</div>
 </footer>
 
 <script>
-// Custom cursor
+// CURSOR
 const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-const loop = () => {
-  rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
-  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(loop);
-};
-loop();
-document.querySelectorAll('a, button, .faq-q, .problem-item').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
-  el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+const cursorRing = document.getElementById('cursorRing');
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  cursorRing.style.left = e.clientX + 'px';
+  cursorRing.style.top = e.clientY + 'px';
 });
-
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-      obs.unobserve(e.target);
-    }
+const hovers = document.querySelectorAll('a, button, .faq-q, .problem-item');
+hovers.forEach(h => {
+  h.addEventListener('mouseenter', () => {
+    cursor.classList.add('hover');
+    cursorRing.classList.add('hover');
   });
-}, { threshold: 0.1 });
-reveals.forEach(el => obs.observe(el));
+  h.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+    cursorRing.classList.remove('hover');
+  });
+});
 
-// FAQ
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// FAQ TOGGLE
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
     item.classList.toggle('open');
   });
 });
+
+// REVEAL ANIMATION
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
