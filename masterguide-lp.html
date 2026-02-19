@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>事例ⅣマスターガイドII｜中小企業診断士 2次試験 最強教材</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a08;
+  --bg2: #111110;
+  --surface: #1a1a17;
+  --surface2: #222220;
+  --ink: #f0ede6;
+  --ink2: #b8b4aa;
+  --ink3: #6b6760;
+  --accent: #e8d5a3;
+  --accent2: #c9a84c;
+  --teal: #4a9c8c;
+  --teal-light: #6ec4b4;
+  --red: #c94a3a;
+  --white: #ffffff;
+  --line-green: #06C755;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  position: fixed; width: 12px; height: 12px;
+  background: var(--accent); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed; width: 40px; height: 40px;
+  border: 1px solid rgba(232,213,163,0.5);
+  border-radius: 50%; pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s, height 0.3s;
+}
+.cursor.hover { width: 6px; height: 6px; }
+.cursor-ring.hover { width: 60px; height: 60px; border-color: var(--accent); }
+
+/* NOISE OVERLAY */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; opacity: 0.4;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  padding: 20px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(240,237,230,0.06);
+  background: rgba(10,10,8,0.85);
+  backdrop-filter: blur(20px);
+  transition: padding 0.3s;
+}
+nav.scrolled { padding: 14px 60px; }
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a {
+  font-size: 12px; letter-spacing: 0.12em;
+  color: var(--ink2); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 10px 24px;
+  background: var(--accent); color: var(--bg);
+  border: none; cursor: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero-left {
+  padding: 160px 60px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.hero-tag {
+  font-size: 10px; letter-spacing: 0.25em;
+  color: var(--teal); font-weight: 500;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-tag::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--teal);
+}
+.hero-h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(48px, 5.5vw, 80px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-h1-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(96px, 14vw, 200px);
+  line-height: 0.85;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  animation: fadeUp 0.8s 0.15s ease both;
+  display: block;
+}
+.hero-desc {
+  font-size: 14px; line-height: 2;
+  color: var(--ink2); font-weight: 300;
+  margin: 32px 0 48px;
+  max-width: 420px;
+  animation: fadeUp 0.8s 0.25s ease both;
+}
+.hero-actions {
+  display: flex; gap: 16px; align-items: center;
+  animation: fadeUp 0.8s 0.35s ease both;
+}
+.btn-main {
+  background: var(--accent); color: var(--bg);
+  padding: 16px 36px; font-size: 14px; font-weight: 700;
+  letter-spacing: 0.08em; border: none; cursor: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+  transition: transform 0.25s, background 0.2s;
+  position: relative; overflow: hidden;
+}
+.btn-main::after {
+  content: '→';
+  transition: transform 0.25s;
+}
+.btn-main:hover { transform: translateY(-2px); background: var(--accent2); }
+.btn-main:hover::after { transform: translateX(4px); }
+.btn-sub {
+  font-size: 12px; color: var(--ink3);
+  text-decoration: none; letter-spacing: 0.08em;
+  display: flex; align-items: center; gap: 8px;
+}
+.btn-sub::before {
+  content: '';
+  width: 20px; height: 1px; background: var(--ink3);
+  transition: width 0.2s;
+}
+.btn-sub:hover::before { width: 32px; }
+
+.hero-right {
+  position: relative; overflow: hidden;
+  animation: fadeIn 1.2s 0.2s ease both;
+}
+.hero-right-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a2a24 0%, #0f1a16 40%, #0a0f0d 100%);
+}
+.hero-right-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(74,156,140,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,156,140,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-data-display {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 60px;
+}
+.data-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 200px;
+  color: rgba(74,156,140,0.15);
+  line-height: 1;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: -0.05em;
+  user-select: none;
+}
+.hero-stat-card {
+  background: rgba(26,26,23,0.9);
+  border: 1px solid rgba(232,213,163,0.15);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+.hero-stat-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--teal);
+}
+.stat-label-small {
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--ink3); margin-bottom: 8px;
+}
+.stat-value-large {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px; color: var(--accent);
+  line-height: 1; letter-spacing: 0.02em;
+}
+.stat-value-large span {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 18px; font-weight: 300;
+  color: var(--ink2);
+}
+.stat-bar {
+  margin-top: 12px;
+  height: 2px; background: var(--surface2);
+  position: relative; overflow: hidden;
+}
+.stat-bar-fill {
+  height: 100%; background: var(--teal);
+  animation: barFill 2s 1s ease both;
+}
+@keyframes barFill {
+  from { width: 0; }
+}
+.hero-badge {
+  position: absolute; bottom: 40px; right: 40px;
+  background: var(--accent); color: var(--bg);
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  animation: rotateBadge 20s linear infinite;
+}
+.hero-badge-num { font-size: 36px; line-height: 1; }
+.hero-badge-text { font-size: 9px; letter-spacing: 0.15em; }
+@keyframes rotateBadge {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid rgba(240,237,230,0.08);
+  border-bottom: 1px solid rgba(240,237,230,0.08);
+  background: var(--surface);
+  padding: 16px 0;
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px; letter-spacing: 0.2em;
+  color: var(--ink3); padding: 0 40px;
+  display: flex; align-items: center; gap: 40px;
+}
+.marquee-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--teal); flex-shrink: 0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* SECTION COMMONS */
+.section { padding: 120px 60px; position: relative; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 120px; color: rgba(240,237,230,0.03);
+  position: absolute; top: 60px; right: 60px;
+  line-height: 1; user-select: none;
+  pointer-events: none;
+}
+.tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 0.25em;
+  color: var(--teal); font-weight: 500; margin-bottom: 20px;
+}
+.tag::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+.h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 900; line-height: 1.2;
+  margin-bottom: 24px;
+}
+.h2 em { font-style: italic; color: var(--accent); }
+.lead {
+  font-size: 15px; line-height: 2;
+  color: var(--ink2); font-weight: 300;
+  max-width: 600px;
+}
+
+/* PROBLEM SECTION */
+.problem { background: var(--bg2); }
+.problem-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.problem-text-block { padding-top: 20px; }
+.problem-quote {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-style: italic;
+  line-height: 1.5; color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding-left: 28px;
+  margin: 40px 0;
+}
+.problem-items { display: flex; flex-direction: column; gap: 2px; }
+.problem-item {
+  background: var(--surface);
+  padding: 28px 32px;
+  display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: start;
+  transition: background 0.2s, transform 0.2s;
+  cursor: none;
+}
+.problem-item:hover { background: var(--surface2); transform: translateX(4px); }
+.problem-item-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; color: var(--ink3); line-height: 1;
+}
+.problem-item-title {
+  font-size: 15px; font-weight: 700; margin-bottom: 6px;
+}
+.problem-item-text {
+  font-size: 13px; color: var(--ink2);
+  line-height: 1.7; font-weight: 300;
+}
+
+/* DATA SECTION */
+.data-section { background: var(--bg); }
+.data-visual {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-top: 60px;
+}
+.data-card {
+  background: var(--surface); padding: 48px 40px;
+  position: relative; overflow: hidden;
+}
+.data-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--teal);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.6s ease;
+}
+.data-card:hover::after { transform: scaleX(1); }
+.data-card-label {
+  font-size: 10px; letter-spacing: 0.2em; color: var(--ink3); margin-bottom: 20px;
+}
+.data-chart {
+  display: flex; align-items: flex-end; gap: 12px;
+  height: 120px; margin-bottom: 24px;
+}
+.data-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+.data-bar {
+  width: 100%; background: var(--surface2);
+  position: relative; border-radius: 2px 2px 0 0;
+  transition: all 0.3s;
+}
+.data-bar-fill {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  border-radius: 2px 2px 0 0;
+  animation: growUp 1.5s ease both;
+}
+.data-bar-fill.iv { background: var(--teal); animation-delay: 0.5s; }
+.data-bar-fill.other { background: var(--ink3); animation-delay: 0.3s; }
+@keyframes growUp {
+  from { height: 0 !important; }
+}
+.data-bar-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px; color: var(--ink2);
+}
+.data-bar-name { font-size: 10px; color: var(--ink3); }
+.data-num-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px; line-height: 1; color: var(--teal);
+}
+.data-num-big small { font-size: 28px; color: var(--ink2); }
+.data-num-desc { font-size: 13px; color: var(--ink2); line-height: 1.7; font-weight: 300; margin-top: 8px; }
+
+.bar-chart-h {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-top: 20px;
+}
+.bar-h-row { display: flex; align-items: center; gap: 16px; }
+.bar-h-label { font-size: 12px; color: var(--ink2); width: 60px; flex-shrink: 0; }
+.bar-h-track { flex: 1; height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+.bar-h-fill { height: 100%; border-radius: 3px; animation: barFill 1.5s ease both; }
+.bar-h-fill.iv-fill { background: var(--teal); animation-delay: 0.5s; }
+.bar-h-fill.other-fill { background: var(--ink3); animation-delay: 0.2s; }
+.bar-h-val { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--accent); width: 40px; }
+
+/* FEATURES */
+.features { background: var(--bg2); }
+.features-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin-top: 60px;
+}
+.feature-card {
+  background: var(--surface); padding: 48px 36px;
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.feature-card:hover { background: var(--surface2); }
+.feature-card-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px; color: rgba(240,237,230,0.04);
+  line-height: 1; position: absolute; top: 20px; right: 20px;
+  pointer-events: none;
+}
+.feature-icon {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(74,156,140,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 28px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.feature-card:hover .feature-icon {
+  border-color: var(--teal); background: rgba(74,156,140,0.1);
+}
+.feature-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px; font-weight: 700; margin-bottom: 16px;
+  line-height: 1.4;
+}
+.feature-text {
+  font-size: 13px; color: var(--ink2); line-height: 1.9; font-weight: 300;
+}
+.feature-list {
+  list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.feature-list li {
+  font-size: 12px; color: var(--ink2); display: flex; align-items: center; gap: 10px;
+}
+.feature-list li::before {
+  content: ''; width: 4px; height: 4px;
+  background: var(--teal); border-radius: 50%; flex-shrink: 0;
+}
+
+/* VOICE SECTION */
+.voices { background: var(--bg); }
+.voices-masonry {
+  columns: 3; gap: 16px; margin-top: 60px;
+}
+.voice-card {
+  break-inside: avoid; margin-bottom: 16px;
+  background: var(--surface); padding: 28px 24px;
+  border: 1px solid rgba(240,237,230,0.06);
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.voice-card:hover { border-color: rgba(74,156,140,0.4); }
+.voice-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px; color: var(--accent);
+  line-height: 1; margin-bottom: 4px;
+}
+.voice-score-arrow {
+  font-size: 11px; color: var(--teal);
+  display: flex; align-items: center; gap: 4px;
+  margin-bottom: 16px;
+}
+.voice-text {
+  font-size: 13px; color: var(--ink2); line-height: 1.8;
+  font-weight: 300;
+}
+.voice-meta {
+  margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid rgba(240,237,230,0.08);
+  font-size: 11px; color: var(--ink3); letter-spacing: 0.08em;
+}
+.voice-highlight {
+  background: var(--surface2);
+  border-left: 2px solid var(--teal);
+}
+
+/* PRODUCT SECTION */
+.products { background: var(--bg2); }
+.products-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-top: 60px;
+}
+.product-card {
+  background: var(--surface); padding: 56px 48px;
+  position: relative; overflow: hidden;
+}
+.product-card.featured {
+  background: var(--surface2);
+  border: 1px solid rgba(232,213,163,0.2);
+}
+.product-label {
+  font-size: 10px; letter-spacing: 0.25em; color: var(--ink3);
+  text-transform: uppercase; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.product-label::after {
+  content: ''; flex: 1; height: 1px; background: rgba(240,237,230,0.08);
+}
+.product-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px; font-weight: 900; line-height: 1.3; margin-bottom: 16px;
+}
+.product-sub { font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 300; margin-bottom: 32px; }
+.product-items { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+.product-items li {
+  font-size: 13px; color: var(--ink2);
+  display: flex; align-items: flex-start; gap: 12px; line-height: 1.6;
+}
+.product-items li::before {
+  content: '→'; color: var(--teal); flex-shrink: 0; font-size: 13px;
+}
+.product-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px; color: var(--accent); line-height: 1;
+}
+.product-price small {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px; color: var(--ink2);
+}
+.product-price-note { font-size: 11px; color: var(--ink3); margin-top: 4px; margin-bottom: 24px; }
+.btn-product {
+  width: 100%; padding: 16px;
+  background: var(--accent); color: var(--bg);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.08em;
+  border: none; cursor: none;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.btn-product:hover { background: var(--accent2); transform: translateY(-2px); }
+.btn-product-ghost {
+  width: 100%; padding: 15px;
+  background: transparent; color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.08em;
+  border: 1px solid rgba(240,237,230,0.2); cursor: none;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+.btn-product-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* AUTHOR */
+.author { background: var(--bg); }
+.author-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.author-visual {
+  position: relative; aspect-ratio: 4/5; overflow: hidden;
+  background: var(--surface);
+}
+.author-img-placeholder {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a2a24, #0f1a16);
+  display: flex; align-items: center; justify-content: center;
+}
+.author-initial {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 200px; color: rgba(74,156,140,0.2);
+  letter-spacing: -0.05em; line-height: 1;
+}
+.author-tag-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(10,10,8,0.9));
+  padding: 60px 32px 32px;
+}
+.author-overlay-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px; font-weight: 700; margin-bottom: 8px;
+}
+.author-overlay-sub { font-size: 12px; color: var(--ink2); letter-spacing: 0.08em; }
+.author-score-badge {
+  position: absolute; top: 24px; right: 24px;
+  background: var(--teal); color: var(--bg);
+  padding: 12px 16px; text-align: center;
+}
+.author-score-badge-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 32px; line-height: 1;
+}
+.author-score-badge-text { font-size: 9px; letter-spacing: 0.1em; }
+.author-content .tag { margin-bottom: 20px; }
+.author-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px; letter-spacing: 0.05em;
+  color: var(--accent); line-height: 1; margin-bottom: 8px;
+}
+.author-title { font-size: 13px; color: var(--ink2); margin-bottom: 32px; }
+.author-text { font-size: 14px; line-height: 2; color: var(--ink2); font-weight: 300; margin-bottom: 32px; }
+.author-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.author-stat {
+  background: var(--surface); padding: 20px;
+}
+.author-stat-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--accent); line-height: 1;
+}
+.author-stat-label { font-size: 10px; color: var(--ink3); margin-top: 4px; }
+
+/* LINE CTA */
+.line-cta {
+  background: var(--surface);
+  border-top: 1px solid rgba(240,237,230,0.06);
+  border-bottom: 1px solid rgba(240,237,230,0.06);
+}
+.line-cta-inner {
+  display: grid; grid-template-columns: 1fr auto; gap: 60px;
+  align-items: center; max-width: 1200px; margin: 0 auto;
+  padding: 80px 60px;
+}
+.line-cta-text .tag { margin-bottom: 16px; }
+.line-cta-h { font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 900; margin-bottom: 12px; }
+.line-cta-sub { font-size: 14px; color: var(--ink2); line-height: 1.8; font-weight: 300; }
+.btn-line {
+  background: var(--line-green); color: var(--white);
+  padding: 20px 48px; font-size: 15px; font-weight: 700;
+  letter-spacing: 0.06em; border: none; cursor: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  display: flex; align-items: center; gap: 14px;
+  transition: transform 0.2s, filter 0.2s;
+  text-decoration: none; white-space: nowrap;
+}
+.btn-line:hover { transform: translateY(-3px); filter: brightness(1.1); }
+.line-icon {
+  width: 28px; height: 28px;
+  background: var(--white); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+}
+.line-icon svg { width: 20px; height: 20px; }
+
+/* FAQ */
+.faq { background: var(--bg2); }
+.faq-list { max-width: 800px; margin-top: 60px; }
+.faq-item {
+  border-bottom: 1px solid rgba(240,237,230,0.08);
+  overflow: hidden;
+}
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28px 0; cursor: none;
+  font-size: 15px; font-weight: 500; line-height: 1.5;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--accent); }
+.faq-toggle {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border: 1px solid rgba(240,237,230,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; line-height: 1;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
+  margin-left: 24px;
+}
+.faq-item.open .faq-toggle {
+  transform: rotate(45deg); background: var(--teal); border-color: var(--teal);
+}
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  font-size: 14px; color: var(--ink2); line-height: 1.9; font-weight: 300;
+  padding-bottom: 0;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
+
+/* FINAL CTA */
+.final-cta {
+  background: var(--bg);
+  padding: 160px 60px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(74,156,140,0.06), transparent);
+}
+.final-cta-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 12vw, 180px);
+  line-height: 0.9; color: rgba(240,237,230,0.05);
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap; pointer-events: none;
+}
+.final-cta-content { position: relative; z-index: 2; }
+.final-cta-tag { margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.final-cta-tag span { font-size: 10px; letter-spacing: 0.25em; color: var(--teal); font-weight: 500; }
+.final-cta-tag::before, .final-cta-tag::after { content: ''; width: 40px; height: 1px; background: var(--teal); }
+.final-h { font-family: 'Noto Serif JP', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.3; margin-bottom: 20px; }
+.final-h em { font-style: italic; color: var(--accent); }
+.final-sub { font-size: 15px; color: var(--ink2); line-height: 1.9; font-weight: 300; margin-bottom: 48px; }
+.final-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid rgba(240,237,230,0.06);
+  padding: 48px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif; font-size: 24px;
+  letter-spacing: 0.12em; color: var(--accent);
+}
+.footer-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.footer-links a {
+  font-size: 12px; color: var(--ink3); text-decoration: none;
+  transition: color 0.2s; letter-spacing: 0.08em;
+}
+.footer-links a:hover { color: var(--ink); }
+.footer-copy { font-size: 11px; color: var(--ink3); letter-spacing: 0.05em; }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left {
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.visible { opacity: 1; transform: none; }
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--ink3); border-radius: 2px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 120px 24px 60px; }
+  .hero-right { display: none; }
+  .section { padding: 80px 24px; }
+  .problem-layout { grid-template-columns: 1fr; gap: 40px; }
+  .data-visual { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .voices-masonry { columns: 1; }
+  .products-grid { grid-template-columns: 1fr; }
+  .author-layout { grid-template-columns: 1fr; }
+  .line-cta-inner { grid-template-columns: 1fr; padding: 60px 24px; }
+  .final-cta { padding: 100px 24px; }
+  footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">MASTAGUIDE Ⅳ</div>
+  <ul class="nav-links">
+    <li><a href="#problem">課題</a></li>
+    <li><a href="#data">データ</a></li>
+    <li><a href="#features">特長</a></li>
+    <li><a href="#voices">合格者の声</a></li>
+    <li><a href="#products">購入</a></li>
+  </ul>
+  <a href="#products" class="nav-cta">購入する</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">中小企業診断士 2次試験対策</div>
+    <h1 class="hero-h1">
+      事例Ⅳで<br>
+      <span class="hero-h1-big">獲る。</span>
+    </h1>
+    <p class="hero-desc">
+      シリーズ累計4,000部超。<br>
+      2次試験は事例Ⅳを軸に攻略してください。<br>
+      アニメーション解説で本質を掴み、<br>
+      30日で本試験を突破する力をつける。
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-main">今すぐ手に入れる</a>
+      <a href="#data" class="btn-sub">データを見る</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-right-grid"></div>
+    <div class="hero-data-display">
+      <div class="data-big">Ⅳ</div>
+      <div class="hero-stat-card">
+        <div class="stat-label-small">SCORE IMPROVEMENT · AVERAGE</div>
+        <div class="stat-value-large">+24.5<span>点</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-label-small">事例Ⅳ 合格率（75点以上取得時）</div>
+        <div class="stat-value-large">93<span>%</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:93%"></div></div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-label-small">SERIES TOTAL USERS</div>
+        <div class="stat-value-large">4,000<span>+</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:100%"></div></div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-num">R6</div>
+      <div class="hero-badge-text">対応版</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">事例Ⅳで獲る<span class="marquee-dot"></span></div>
+    <div class="marquee-item">シリーズ累計4,000部超<span class="marquee-dot"></span></div>
+    <div class="marquee-item">平均+24.5点UP<span class="marquee-dot"></span></div>
+    <div class="marquee-item">75点以上で合格率93%<span class="marquee-dot"></span></div>
+    <div class="marquee-item">アニメーション解説<span class="marquee-dot"></span></div>
+    <div class="marquee-item">30日で本試験対応力<span class="marquee-dot"></span></div>
+    <div class="marquee-item">事例Ⅳで獲る<span class="marquee-dot"></span></div>
+    <div class="marquee-item">シリーズ累計4,000部超<span class="marquee-dot"></span></div>
+    <div class="marquee-item">平均+24.5点UP<span class="marquee-dot"></span></div>
+    <div class="marquee-item">75点以上で合格率93%<span class="marquee-dot"></span></div>
+    <div class="marquee-item">アニメーション解説<span class="marquee-dot"></span></div>
+    <div class="marquee-item">30日で本試験対応力<span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section problem" id="problem">
+  <div class="section-num">01</div>
+  <div class="section-inner">
+    <div class="problem-layout">
+      <div class="problem-text-block reveal-left">
+        <div class="tag">PROBLEM</div>
+        <h2 class="h2">2次試験で<br>最も<em>怖いこと</em></h2>
+        <blockquote class="problem-quote">
+          「1,000時間費やしても合格をつかめない。得点が下がってしまう。」
+        </blockquote>
+        <p class="lead">
+          勉強が得意だった。経営知識もついた。過去問も解ける。模試で高得点もとれる。<br><br>
+          それでも「なぜ？」と頭を抱える受験生が無数にいます。<br>
+          これは本人のせいではありません。
+        </p>
+      </div>
+      <div class="problem-items reveal-right">
+        <div class="problem-item">
+          <div class="problem-item-num">01</div>
+          <div>
+            <div class="problem-item-title">解法がバラバラで本番に使えない</div>
+            <div class="problem-item-text">CVP・NPV・経営指標…論点ごとに解き方が変わり、本番でパニックになる。</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-item-num">02</div>
+          <div>
+            <div class="problem-item-title">80分の時間配分が崩壊する</div>
+            <div class="problem-item-text">計算に時間をかけすぎて記述が手薄に。戦略的な時間管理を知らない。</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-item-num">03</div>
+          <div>
+            <div class="problem-item-title">計算が合っても点が伸びない</div>
+            <div class="problem-item-text">財務分析の記述の「型」を知らないため、部分点が取れず伸び悩む。</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-item-num">04</div>
+          <div>
+            <div class="problem-item-title">成功者バイアスに振り回される</div>
+            <div class="problem-item-text">再現性の低いメソッドやカリスマ講師に依存し、沼にはまる。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA -->
+<section class="section data-section" id="data">
+  <div class="section-num">02</div>
+  <div class="section-inner">
+    <div class="tag reveal">DATA</div>
+    <h2 class="h2 reveal">数字が<em>証明する</em><br>事例Ⅳの重要性</h2>
+    <div class="data-visual">
+      <div class="data-card reveal">
+        <div class="data-card-label">同一人物 1年後得点変化（平均）N=81名</div>
+        <div class="bar-chart-h">
+          <div class="bar-h-row">
+            <div class="bar-h-label">事例Ⅰ</div>
+            <div class="bar-h-track"><div class="bar-h-fill other-fill" style="width:50%"></div></div>
+            <div class="bar-h-val">+5.2</div>
+          </div>
+          <div class="bar-h-row">
+            <div class="bar-h-label">事例Ⅱ</div>
+            <div class="bar-h-track"><div class="bar-h-fill other-fill" style="width:37%"></div></div>
+            <div class="bar-h-val">+3.9</div>
+          </div>
+          <div class="bar-h-row">
+            <div class="bar-h-label">事例Ⅲ</div>
+            <div class="bar-h-track"><div class="bar-h-fill other-fill" style="width:40%"></div></div>
+            <div class="bar-h-val">+4.2</div>
+          </div>
+          <div class="bar-h-row">
+            <div class="bar-h-label" style="color:var(--teal); font-weight:700;">事例Ⅳ</div>
+            <div class="bar-h-track"><div class="bar-h-fill iv-fill" style="width:100%"></div></div>
+            <div class="bar-h-val" style="color:var(--teal)">+10.4</div>
+          </div>
+        </div>
+        <p style="font-size:11px; color:var(--ink3); margin-top:20px;">事例Ⅳは他の事例の2倍以上、得点が伸びやすい</p>
+      </div>
+      <div class="data-card reveal">
+        <div class="data-card-label">事例Ⅳ 75点以上取得者の合格率（R4〜R6 N=70名）</div>
+        <div class="data-num-big">93<small>%</small></div>
+        <div class="data-num-desc">事例Ⅳで75点以上を取れた受験生の93%が合格。<br>事例Ⅳを制することが合格への最短ルートです。</div>
+      </div>
+      <div class="data-card reveal">
+        <div class="data-card-label">利用者 平均得点向上（自己申告 N=10名）</div>
+        <div class="data-num-big">+24.5<small>点</small></div>
+        <div class="data-num-desc">マスターガイド利用者の平均得点向上。<br>38点→73点、42点→74点など、劇的な改善事例多数。</div>
+      </div>
+      <div class="data-card reveal">
+        <div class="data-card-label">高得点に必要な4つのスキル</div>
+        <ul class="feature-list" style="margin-top:8px;">
+          <li>基礎の理解 — 論点別の本質的な解法を体得</li>
+          <li>プロセスの分解 — 計算手順を完全に型化</li>
+          <li>情報の整頓 — 問題文から正確に情報を抽出</li>
+          <li>時間の使い方 — 80分を最大効率で使い切る</li>
+        </ul>
+        <p style="font-size:11px; color:var(--ink3); margin-top:20px;">特別な才能・計算力は一切不要</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <div class="section-num">03</div>
+  <div class="section-inner">
+    <div class="tag reveal">FEATURES</div>
+    <h2 class="h2 reveal">マスターガイドが<br><em>選ばれる理由</em></h2>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-card-num">01</div>
+        <div class="feature-icon">▶</div>
+        <div class="feature-title">プロセス追及型<br>アニメーション解説</div>
+        <div class="feature-text">考え方と解答プロセスを動的に可視化。「なぜそうなるのか」の本質から理解できます。</div>
+        <ul class="feature-list">
+          <li>デジタル媒体でどこでも学習可能</li>
+          <li>PDF版への取り込みにも対応</li>
+          <li>スピーディーで楽しい学習体験</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card-num">02</div>
+        <div class="feature-icon">⏱</div>
+        <div class="feature-title">80分マネジメント<br>戦略付き</div>
+        <div class="feature-text">どの設問から着手し、何分で切り上げるか。最速解答手順と時間制限を設定した実戦形式。</div>
+        <ul class="feature-list">
+          <li>最速解答手順の徹底解説</li>
+          <li>時間制限設定で本番感覚を養成</li>
+          <li>優先度判断の基準を明示</li>
+        </ul>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card-num">03</div>
+        <div class="feature-icon">★</div>
+        <div class="feature-title">難易度★レベルで<br>段階的に実力UP</div>
+        <div class="feature-text">問題難易度を★1〜5で設定。初学者から上級者まで自分のレベルに合わせた取り組みが可能。</div>
+        <ul class="feature-list">
+          <li>★1〜5の段階別問題設計</li>
+          <li>攻略マスタガ：基礎〜応用35問</li>
+          <li>過去問マスタガ：直近10年完全解説</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="section voices" id="voices">
+  <div class="section-num">04</div>
+  <div class="section-inner">
+    <div class="tag reveal">TESTIMONIALS</div>
+    <h2 class="h2 reveal">合格者の<em>リアルな声</em></h2>
+    <div class="voices-masonry">
+      <div class="voice-card reveal voice-highlight">
+        <div class="voice-score">R6 92点</div>
+        <div class="voice-score-arrow">↑ 超高得点合格</div>
+        <div class="voice-text">「令和6年2次試験で92点取れました！受験者に寄り添った教材だと思います！」</div>
+        <div class="voice-meta">R6年 合格者</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-score">38→73点</div>
+        <div class="voice-score-arrow">↑ +35点 40代男性</div>
+        <div class="voice-text">「事例Ⅳの本質がよく分かりました！事例Ⅳの高得点で合格できたと言っても過言ではありません。」</div>
+        <div class="voice-meta">40代 男性</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-score">R6 90点</div>
+        <div class="voice-score-arrow">↑ 本気合格者</div>
+        <div class="voice-text">「マスタガのおかげで、90点以上の高得点で合格できました。8月から10月にかけて4周しました。表面上のテクニックではなく、考え方の根拠を徹底的に解説している良書です。」</div>
+        <div class="voice-meta">R6年 合格者</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-score">R5 70点</div>
+        <div class="voice-score-arrow">↑ R3(35点)→R4(48点)→R5(70点)</div>
+        <div class="voice-text">「これがなかったら合格してません。他参考書の解説は「え?なんで?」ばかり…。界隈トップの事例Ⅳ弱者ですが、サン問題集は解説が本っ当丁寧で理解できます！」</div>
+        <div class="voice-meta">30代 女性</div>
+      </div>
+      <div class="voice-card reveal voice-highlight">
+        <div class="voice-score">R6 78点</div>
+        <div class="voice-score-arrow">↑ 足切りからの高得点</div>
+        <div class="voice-text">「R3,R4では足切りでした。マスタガで基本をみっちり叩き込み、R6本番では落ち着いて解答でき78点を獲得！事例Ⅳ弱者でも『デキる』勇者にしてくれるバイブルです！」</div>
+        <div class="voice-meta">R6年 合格者</div>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-score">R5 75点</div>
+        <div class="voice-score-arrow">↑ R4(57点)→R5(75点)</div>
+        <div class="voice-text">「この問題集のお陰で、R4 57点→R5 75点まで伸びて無事に合格！各論点毎に優しい問題から応用問題まで段階的に取り組めます。初学者から上級者まで万人にオススメです。」</div>
+        <div class="voice-meta">30代 男性</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+  <div class="section-num">05</div>
+  <div class="section-inner">
+    <div class="tag reveal">PRODUCTS</div>
+    <h2 class="h2 reveal">あなたに合った<br><em>1冊を選ぶ</em></h2>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-label">基礎力 &amp; 応用力</div>
+        <div class="product-title">攻略マスターガイド</div>
+        <div class="product-sub">重要論点の完全攻略講義と厳選オリジナル問題で、基礎から応用まで体系的に習得。</div>
+        <ul class="product-items">
+          <li>重要論点（経営分析/CVP/ODA/NPV）完全攻略講義</li>
+          <li>基礎から応用まで厳選オリジナル35問</li>
+          <li>本試験未出の初見対策問題も収録</li>
+          <li>アニメーション解説でプロセスを可視化</li>
+          <li>80分タイムマネジメント戦略付き</li>
+        </ul>
+        <div class="product-price">¥6,380<small>（税込）</small></div>
+        <div class="product-price-note">YouTubeクーポン GTCV37LF で ¥300 off</div>
+        <a href="#" class="btn-product">攻略マスターガイドを購入</a>
+      </div>
+      <div class="product-card featured reveal">
+        <div class="product-label">本試験対応力</div>
+        <div class="product-title">過去問マスターガイド</div>
+        <div class="product-sub">直近10年分の過去問を完全解説。5年分は模試形式で本番さながらの実戦力を養成。</div>
+        <ul class="product-items">
+          <li>大ボリューム：直近10年分完全解説</li>
+          <li>多くの模範解答を参照しベスト解答を構築</li>
+          <li>5年分は模試形式を実施</li>
+          <li>解答用紙付きで本番さながらの練習</li>
+          <li>著者による詳細なコメント・分析</li>
+        </ul>
+        <div class="product-price">¥6,380<small>（税込）</small></div>
+        <div class="product-price-note">YouTubeクーポン VB639UFL で ¥800 off</div>
+        <a href="#" class="btn-product">過去問マスターガイドを購入</a>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:13px; color:var(--ink3); margin-top:32px;">
+      ※ デジタルコンテンツのみ提供（PowerPoint形式・PDF版付き）<br>購入後3日間・3回まで再ダウンロード可能
+    </p>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="section author">
+  <div class="section-num">06</div>
+  <div class="section-inner">
+    <div class="author-layout">
+      <div class="author-visual reveal-left">
+        <div class="author-img-placeholder">
+          <div class="author-initial">SUN</div>
+        </div>
+        <div class="author-tag-overlay">
+          <div class="author-overlay-title">著者：サン</div>
+          <div class="author-overlay-sub">(一社)中小企業戦略研究所</div>
+        </div>
+        <div class="author-score-badge">
+          <div class="author-score-badge-num">79点</div>
+          <div class="author-score-badge-text">本試験スコア</div>
+        </div>
+      </div>
+      <div class="author-content reveal-right">
+        <div class="tag">AUTHOR</div>
+        <div class="author-name">SUN</div>
+        <div class="author-title">中小企業診断士 / 事例Ⅳマニア</div>
+        <p class="author-text">
+          診断士2次試験合格後（事例Ⅳ 79点）に、その10倍の時間をかけて事例Ⅳを徹底研究。<br><br>
+          40万ビューの試験対策ブログと事例Ⅳ専門YouTubeチャンネルを運営。受験生の疑問と向き合い続けた結果、高得点化に必要な要素を体系化しました。<br><br>
+          「事例Ⅳと向き合った回数や分析は日本で5本の指に入ると思います。」
+        </p>
+        <div class="author-stats">
+          <div class="author-stat">
+            <div class="author-stat-num">40万</div>
+            <div class="author-stat-label">ブログ閲覧数</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat-num">4,000+</div>
+            <div class="author-stat-label">教材利用者数</div>
+          </div>
+          <div class="author-stat">
+            <div class="author-stat-num">79点</div>
+            <div class="author-stat-label">本試験スコア</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA -->
+<div class="line-cta">
+  <div class="line-cta-inner">
+    <div class="line-cta-text reveal">
+      <div class="tag">LINE公式</div>
+      <div class="line-cta-h">最新情報・クーポンを<br>LINEで受け取る</div>
+      <div class="line-cta-sub">公式LINEに登録すると、最新の教材情報、期間限定クーポン、<br>無料サンプルなど受験生に役立つ情報をお届けします。</div>
+    </div>
+    <a href="#" class="btn-line reveal">
+      <div class="line-icon">
+        <svg viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.37 1.88 6.32 4.72 8.05L6 22l3.28-1.72C10.16 20.72 11.06 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm1 13H7v-1.5h6V15zm0-3H7v-1.5h6V12zm0-3H7V7.5h6V9z"/></svg>
+      </div>
+      LINE公式に登録する（無料）
+    </a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section faq">
+  <div class="section-num">07</div>
+  <div class="section-inner">
+    <div class="tag reveal">FAQ</div>
+    <h2 class="h2 reveal">よくある<em>質問</em></h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q">この教材だけでも大丈夫ですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">問題ありません。攻略マスターガイドでは初学者向けレベル〜本試験以上のレベルに幅広く対応。過去問マスターガイドでは本試験レベルの完全攻略に対応しています。他の問題集・予備校との併用も効果的です。</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">どちらの教材から始めるべきですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">推奨順序：①攻略マスターガイドの基礎攻略＋★3問題まで → ②過去問マスターガイドの前半5年 → ③攻略マスターガイドの★4〜5問題 → ④過去問マスターガイドの後半5年（模試形式）</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">デジタルデータのみですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">はい、デジタルデータのみです。アニメーション解説のためPowerPoint形式で提供しています。PCやタブレットで見ながら紙とペンで記入する学習形式が理想的ですが、PDF版もあります。</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">返品は可能ですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">デジタルコンテンツの仕様上、原則として返品は承っておりません。ただし、中身にご満足いただけない場合は個別に対応いたします。事前に無料テスト版もご用意していますので、使い勝手をご確認ください。</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">著者に質問することはできますか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">講義内容は教材内で完結していますが、コミュニケーションの範囲内でお答えしています。多くの合格者から「どこの予備校よりも早く回答してくださる」とのお声をいただいています。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-big">MASTER</div>
+  <div class="final-cta-content">
+    <div class="final-cta-tag"><span>START YOUR JOURNEY</span></div>
+    <h2 class="final-h">事例Ⅳを<br><em>武器に変える。</em></h2>
+    <p class="final-sub">
+      30日あれば本試験で通用する力がつきます。<br>
+      特別な才能も、計算力も必要ありません。<br>
+      必要なのは、正しい教材と正しい方法だけです。
+    </p>
+    <div class="final-buttons">
+      <a href="#products" class="btn-main">教材を購入する</a>
+      <a href="#" class="btn-line" style="padding:16px 36px; font-size:14px;">
+        <div class="line-icon">
+          <svg viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.37 1.88 6.32 4.72 8.05L6 22l3.28-1.72C10.16 20.72 11.06 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
+        </div>
+        LINEで相談する
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MASTAGUIDE Ⅳ</div>
+  <ul class="footer-links">
+    <li><a href="#">プライバシーポリシー</a></li>
+    <li><a href="#">特定商取引法</a></li>
+    <li><a href="mailto:jirei4mg@2ji-ken.com">お問い合わせ</a></li>
+    <li><a href="https://smri.or.jp/">運営会社</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 (一社)中小企業戦略研究所</div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+const loop = () => {
+  rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(loop);
+};
+loop();
+document.querySelectorAll('a, button, .faq-q, .problem-item').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
