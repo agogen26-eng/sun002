@@ -575,14 +575,13 @@ nav.scrolled { padding: 14px 60px; }
 .author { background: var(--bg); }
 .author-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .author-visual {
-  position: relative; aspect-ratio: 4/5; overflow: hidden;
+  position: relative; overflow: hidden;
   background: var(--surface);
 }
-/* 修正点：画像をアップロードしたものに差し替え */
 .author-visual img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
+  width: 100%; height: auto;
+  display: block;
+  object-fit: contain;
 }
 .author-tag-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
